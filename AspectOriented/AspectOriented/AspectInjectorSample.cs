@@ -1,5 +1,5 @@
-﻿using AspectOriented.CustomAttributes;
-using AspectOriented.Models;
+﻿using Aspect.Domain.Models;
+using Aspect.Library.CustomAttributes;
 
 namespace AspectOriented
 {

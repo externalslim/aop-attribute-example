@@ -1,4 +1,4 @@
-﻿namespace AspectOriented.Models
+﻿namespace Aspect.Domain.Models
 {
     public class Person
     {

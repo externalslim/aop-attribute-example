@@ -2,3 +2,7 @@ AspectOriented/.vs/
 AspectOriented/AspectOriented/bin/
 AspectOriented/AspectOriented/obj/
 .vs/
+AspectOriented/Aspect.Domain/bin/
+AspectOriented/Aspect.Domain/obj/
+AspectOriented/Aspect.Library/obj/
+AspectOriented/Aspect.Library/bin/

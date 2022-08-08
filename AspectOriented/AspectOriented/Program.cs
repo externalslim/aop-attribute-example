@@ -1,6 +1,5 @@
-﻿using AspectOriented;
-using AspectOriented.CustomAttributes;
-using AspectOriented.Models;
+﻿using Aspect.Domain.Models;
+using AspectOriented;
 using Newtonsoft.Json;
 
 /******************** first way ********************/
