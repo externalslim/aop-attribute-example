@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AspectInjector" Version="2.7.4" />
+  </ItemGroup>
+
 </Project>
