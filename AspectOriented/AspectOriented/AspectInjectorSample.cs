@@ -1,4 +1,5 @@
 ﻿using AspectOriented.CustomAttributes;
+using AspectOriented.Models;
 
 namespace AspectOriented
 {
@@ -6,15 +7,27 @@ namespace AspectOriented
     public class AspectInjectorSample
     {
         [TraceAspect]
-        public void Method1()
+        public Response Method1(Person person)
         {
             Console.WriteLine("method1");
+
+            return new Response()
+            {
+                Code = 200,
+                Message = "method 1 success"
+            };
         }
 
-        //[TraceAspect]
-        public void Method2()
+        [TraceAspect]
+        public Response Method2(Person person)
         {
             Console.WriteLine("method2");
+
+            return new Response()
+            {
+                Code = 200,
+                Message = "method 2 success"
+            };
         }
 
     }

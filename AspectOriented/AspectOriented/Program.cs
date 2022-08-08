@@ -1,5 +1,7 @@
 ﻿using AspectOriented;
 using AspectOriented.CustomAttributes;
+using AspectOriented.Models;
+using Newtonsoft.Json;
 
 /******************** first way ********************/
 
@@ -16,16 +18,35 @@ using AspectOriented.CustomAttributes;
 
 Console.WriteLine("init");
 
-AspectInjectorSample sample = new AspectInjectorSample();
-sample.Method1();
-sample.Method2();
+Person person = new();
+person.Id = 1;
+person.FirstName = "Joe";
+person.LastName = "Doe";
+person.Email = "JoeDoe@emailtest.com";
 
+Person personTwo = new();
+personTwo.Id = 10;
+personTwo.FirstName = "AnotherJoe";
+personTwo.LastName = "AnotherDoe";
+personTwo.Email = "AnotherJoeDoe@emailtest.com";
+try
+{
+
+    AspectInjectorSample sample = new AspectInjectorSample();
+
+    var response = sample.Method1(person);
+
+    Console.WriteLine(JsonConvert.SerializeObject(response));
+
+    var responseAnother = sample.Method2(personTwo);
+
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
 Console.WriteLine("out");
 
 Console.ReadLine();
-
-
-
-
 
 /******************** second way ********************/
