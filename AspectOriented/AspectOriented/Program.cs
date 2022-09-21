@@ -1,49 +1,52 @@
-﻿using Aspect.Domain.Models;
+﻿using System.Text;
+using Aspect.Domain.Models;
+using Aspect.Domain.Models.IdentityApi;
 using AspectOriented;
 using Newtonsoft.Json;
 
-/******************** first way ********************/
+//Console.WriteLine("init");
+int workerThreads = 0;
+int completionPortThreads = 0;
+ThreadPool.GetMaxThreads(out workerThreads, out completionPortThreads);
+Console.WriteLine("workerThreads " + workerThreads);
+Console.WriteLine("completionPortThreads " + completionPortThreads);
 
-//var executer = new Runner();
-//var operation = new Operation();
-//executer.Execute(operation.ExecuterTest);
+ThreadPool.SetMaxThreads(500, 8);
+int afterSetworkerThreads = 0;
+int afterSetcompletionPortThreads = 0;
+ThreadPool.GetMaxThreads(out afterSetworkerThreads, out afterSetcompletionPortThreads);
+Console.WriteLine("afterSetworkerThreads " + afterSetworkerThreads);
+Console.WriteLine("afterSetcompletionPortThreads " + afterSetcompletionPortThreads);
 
-//Console.ReadLine();
+int minworkerThreads = 0;
+int mincompletionPortThreads = 0;
+ThreadPool.GetMinThreads(out minworkerThreads, out mincompletionPortThreads);
+Console.WriteLine("minworkerThreads " + minworkerThreads);
+Console.WriteLine("mincompletionPortThreads " + mincompletionPortThreads);
 
-/******************** first way ********************/
+//GenerateUserTokenRequest request = new();
+//request.Channel = Phoenix.Core.Common.Channel.Mobile;
 
+//try
+//{
 
-/******************** second way ********************/
+//    AspectInjectorSample sample = new AspectInjectorSample();
+//    var response = sample.Test();
+//    Console.WriteLine(JsonConvert.SerializeObject(response));
+//    //var response = sample.Method1(person);
+//    //Console.WriteLine(JsonConvert.SerializeObject(response));
 
-Console.WriteLine("init");
+//    //var responseAnother = sample.Method2(personTwo);
+//    //Console.WriteLine(JsonConvert.SerializeObject(responseAnother));
 
-Person person = new();
-person.Id = 1;
-person.FirstName = "Joe";
-person.LastName = "Doe";
-person.Email = "JoeDoe@emailtest.com";
+//    //var responseDemoRequest = sample.Method3(request);
+//    //Console.WriteLine(JsonConvert.SerializeObject(responseDemoRequest));
 
-Person personTwo = new();
-personTwo.Id = 10;
-personTwo.FirstName = "AnotherJoe";
-personTwo.LastName = "AnotherDoe";
-personTwo.Email = "AnotherJoeDoe@emailtest.com";
-try
-{
-
-    AspectInjectorSample sample = new AspectInjectorSample();
-
-    var response = sample.Method1(person);
-
-    Console.WriteLine(JsonConvert.SerializeObject(response));
-
-    var responseAnother = sample.Method2(personTwo);
-
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
+//}
+//catch (Exception ex)
+//{
+//    Console.WriteLine(ex.Message);
+//}
 Console.WriteLine("out");
 
 Console.ReadLine();
